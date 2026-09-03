@@ -1,7 +1,7 @@
 # Source data quality
 
 Harvested from 52 states/territories and 311 linked documents in the master Google Doc.
-Parsed into **10,477 programs** and **19,416 links**.
+Parsed into **10,359 programs** and **19,275 links**.
 
 Everything below is a defect in the original Drive folder, not in the extraction. The app still shows the original Google Doc link for every report, so nothing is lost to the reader.
 
@@ -40,6 +40,8 @@ Found while parsing. All content is preserved verbatim in `raw/docs/`; none of t
 - **One misassigned link.** The master document's North Carolina *Financial Assistance* link points at a Google Doc titled "Book notes" — a short personal outline, not a Lesko report.
 - **Editing debris.** A few documents contain stray characters left over from editing (a run of backslashes in Oregon, `Aa as à AA qàáà see em` in Virginia, empty "Tab 2/3/4" sections in several). The parser drops single-character and separator-only lines, so most of this never reaches the app.
 - **Duplicated sections.** Delaware and Virginia are listed twice in the master document with two different sets of six links; both sets are merged into one entry per state. Puerto Rico is listed with two *Jobs, Education, Training* links and no *Financial Assistance* or *Health* report.
+- **Two overlapping copies of one report.** Puerto Rico is linked to two different *Jobs, Education, Training* documents that share about half their content; Delaware and Virginia are each listed twice in the master document. Programs are deduplicated across the documents in a category, so each one appears once.
+- **A short, mislabelled report.** The District of Columbia *Jobs, Education, Training* link points at a 7KB document that is mostly the "9 Free Local Researchers" mentoring content, which is why DC shows far fewer jobs programs (14) than other states (about 99).
 - **Dead external links.** Many programs point at pages that have moved since the reports were written (`youcaring.com` shut down, several `hud.gov` and `portal.hud.gov` paths now redirect). Link-checking is a separate pass and has not been run.
 
 ## Categories with no programs in the app

@@ -64,6 +64,12 @@ lines += ["## Known defects inside the source documents", "",
           "- **Duplicated sections.** Delaware and Virginia are listed twice in the master document with two different sets "
           "of six links; both sets are merged into one entry per state. Puerto Rico is listed with two *Jobs, Education, "
           "Training* links and no *Financial Assistance* or *Health* report.",
+          "- **Two overlapping copies of one report.** Puerto Rico is linked to two different *Jobs, Education, "
+          "Training* documents that share about half their content; Delaware and Virginia are each listed twice in the "
+          "master document. Programs are deduplicated across the documents in a category, so each one appears once.",
+          "- **A short, mislabelled report.** The District of Columbia *Jobs, Education, Training* link points at a 7KB "
+          "document that is mostly the \"9 Free Local Researchers\" mentoring content, which is why DC shows far fewer "
+          "jobs programs (14) than other states (about 99).",
           "- **Dead external links.** Many programs point at pages that have moved since the reports were written "
           "(`youcaring.com` shut down, several `hud.gov` and `portal.hud.gov` paths now redirect). Link-checking is a "
           "separate pass and has not been run.", ""]

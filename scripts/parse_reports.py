@@ -335,6 +335,20 @@ def main():
                 cat['groups'].append({'title': '', 'programs': [{'title': sec['category'], 'text': sec.get('blurb',''),
                     'links': [{'url': sec['url'], 'label': host(sec['url']), 'type': link_type(sec['url']), 'host': host(sec['url'])}]}]})
         for key, cat in by_key.items():
+            # Some states link two overlapping versions of the same report (Puerto Rico's two
+            # Jobs documents, the duplicated Delaware and Virginia blocks). Dedupe across the
+            # whole category so a member doesn't scroll the same program twice.
+            fingerprints = set()
+            for g in cat['groups']:
+                kept = []
+                for p in g['programs']:
+                    fp = (p['title'].lower(), tuple(sorted(l['url'] for l in p['links'])))
+                    if fp in fingerprints:
+                        continue
+                    fingerprints.add(fp)
+                    kept.append(p)
+                g['programs'] = kept
+            cat['groups'] = [g for g in cat['groups'] if g['programs'] or (g.get('intro') and g['intro']['links'])]
             n = sum(len(g['programs']) for g in cat['groups'])
             cat['programCount'] = n
             cat['linkCount'] = sum(len(p['links']) for g in cat['groups'] for p in g['programs'])
