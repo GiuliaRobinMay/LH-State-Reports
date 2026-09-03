@@ -1096,7 +1096,7 @@
    "name": "North Dakota",
    "abbr": "ND",
    "slug": "north-dakota",
-   "programCount": 136,
+   "programCount": 235,
    "categories": [
     {
      "key": "financial",
@@ -1108,7 +1108,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 99
     },
     {
      "key": "health",
@@ -1160,7 +1160,7 @@
    "name": "Oklahoma",
    "abbr": "OK",
    "slug": "oklahoma",
-   "programCount": 140,
+   "programCount": 237,
    "categories": [
     {
      "key": "financial",
@@ -1172,7 +1172,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 97
     },
     {
      "key": "health",
@@ -1224,7 +1224,7 @@
    "name": "Pennsylvania",
    "abbr": "PA",
    "slug": "pennsylvania",
-   "programCount": 146,
+   "programCount": 244,
    "categories": [
     {
      "key": "financial",
@@ -1236,7 +1236,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 98
     },
     {
      "key": "health",
@@ -1504,7 +1504,7 @@
    "name": "Virginia",
    "abbr": "VA",
    "slug": "virginia",
-   "programCount": 138,
+   "programCount": 237,
    "categories": [
     {
      "key": "financial",
@@ -1516,7 +1516,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 99
     },
     {
      "key": "health",
@@ -1536,7 +1536,7 @@
    "name": "Washington",
    "abbr": "WA",
    "slug": "washington",
-   "programCount": 159,
+   "programCount": 258,
    "categories": [
     {
      "key": "financial",
@@ -1548,7 +1548,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 99
     },
     {
      "key": "health",
@@ -1568,7 +1568,7 @@
    "name": "West Virginia",
    "abbr": "WV",
    "slug": "west-virginia",
-   "programCount": 124,
+   "programCount": 223,
    "categories": [
     {
      "key": "financial",
@@ -1580,7 +1580,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 99
     },
     {
      "key": "health",
@@ -1600,7 +1600,7 @@
    "name": "Wisconsin",
    "abbr": "WI",
    "slug": "wisconsin",
-   "programCount": 137,
+   "programCount": 235,
    "categories": [
     {
      "key": "financial",
@@ -1612,7 +1612,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 98
     },
     {
      "key": "health",
@@ -1632,7 +1632,7 @@
    "name": "Wyoming",
    "abbr": "WY",
    "slug": "wyoming",
-   "programCount": 111,
+   "programCount": 250,
    "categories": [
     {
      "key": "financial",
@@ -1644,7 +1644,7 @@
     },
     {
      "key": "jobs",
-     "programCount": 0
+     "programCount": 98
     },
     {
      "key": "health",
@@ -1656,7 +1656,7 @@
     },
     {
      "key": "housing",
-     "programCount": 0
+     "programCount": 41
     }
    ]
   }
@@ -1707,8 +1707,8 @@
  ],
  "totals": {
   "states": 52,
-  "programs": 9649,
-  "links": 18003
+  "programs": 10477,
+  "links": 19416
  },
  "generated": "2026-09-03"
 }

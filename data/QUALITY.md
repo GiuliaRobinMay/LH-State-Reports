@@ -1,7 +1,7 @@
 # Source data quality
 
 Harvested from 52 states/territories and 311 linked documents in the master Google Doc.
-Parsed into **9,649 programs** and **18,003 links**.
+Parsed into **10,477 programs** and **19,416 links**.
 
 Everything below is a defect in the original Drive folder, not in the extraction. The app still shows the original Google Doc link for every report, so nothing is lost to the reader.
 
@@ -20,17 +20,8 @@ The linked file returns *"Requested entity was not found"* — it has been delet
 | Kentucky | Financial Assistance | [source](https://docs.google.com/document/d/1JfQpPCTZ2iuagI5QRvxCUnPmOxJ2uG5_P1K5pZFCUSM/edit?usp=sharing) |
 | Maryland | Jobs, Education, Training | [source](https://docs.google.com/document/d/1MmcWlR16XX9gcDRb-ZtTVEK4VQ51icKtwva4UXiACk8/edit?usp=sharing) |
 | Montana | Free Local Mentoring, Consulting, and Research Help | [source](https://drive.google.com/file/d/1dAnvTSNRz3umMnaDjbBbbUf0nXH3juO1/view?usp=sharing) |
-| North Dakota | Jobs, Education, Training | [source](https://docs.google.com/document/d/1TmvNdqaJpBocNIqNGf-K8X-X-LB1SJAiCc0LeqTmZ6g/edit?usp=sharing) |
 | Ohio | Jobs, Education, Training | [source](https://docs.google.com/document/d/1zEP7uBVC4rvkGQ_9wisJnNGjtejCi6mbNtFh5V4gpn0/edit?usp=sharing) |
 | Ohio | Free Local Mentoring, Consulting, and Research Help | [source](https://drive.google.com/file/d/17cdzovseL5xFfQzTE8GxJ-rqMDiaKEK3/view?usp=sharing) |
-| Oklahoma | Jobs, Education, Training | [source](https://docs.google.com/document/d/1xBWtQUteW_r9G_uKm20ntF6ajQR_vZu_2uQfb5S2tXs/edit?usp=sharing) |
-| Pennsylvania | Jobs, Education, Training | [source](https://docs.google.com/document/d/1KJsaUapDeeqDu5pm0g1hp8goTp7fKGTyfJg0blSlvhI/edit?usp=sharing) |
-| Virginia | Jobs, Education, Training | [source](https://docs.google.com/document/d/1lkucRg5KvLHh0Z2lKHeNR-lSzBq59rlQNEnrwC1XYZM/edit?usp=sharing) |
-| Washington | Jobs, Education, Training | [source](https://docs.google.com/document/d/1TKeOP3x-D2yGPvBAyA0IiV3FCFr0JQilhppRC7lDk10/edit?usp=sharing) |
-| West Virginia | Jobs, Education, Training | [source](https://docs.google.com/document/d/126bHeczQJuZKZrDVcLYSgH0ix200cVXCKYsYbVefQHU/edit?usp=sharing) |
-| Wisconsin | Jobs, Education, Training | [source](https://docs.google.com/document/d/1JsBSPGRkrHCxkN7NpCBucYS6-0A8KP1T8K9dLPJHFFE/edit?usp=sharing) |
-| Wyoming | Jobs, Education, Training | [source](https://docs.google.com/document/d/1zFjEzPAII7nbwWQmIrkOMQIwyg6VMT9IpCBIMAfNSRs/edit?usp=sharing) |
-| Wyoming | Real Estate and Housing | [source](https://drive.google.com/file/d/1Nk6A4QqhTtcjfRrzOqdyhlPSBZgxIBq-/view?usp=sharing) |
 
 ## Documents that are effectively empty
 
@@ -55,4 +46,4 @@ Found while parsing. All content is preserved verbatim in `raw/docs/`; none of t
 
 These are the consequence of the two lists above.
 
-Alabama (financial), Alabama (jobs), Alaska (jobs), California (jobs), Delaware (financial), Idaho (jobs), Kansas (jobs), Kentucky (financial), Maryland (jobs), Montana (mentoring), North Carolina (financial), North Dakota (jobs), Ohio (jobs), Ohio (mentoring), Oklahoma (jobs), Pennsylvania (jobs), Utah (financial), Virginia (jobs), Washington (jobs), West Virginia (jobs), Wisconsin (jobs), Wyoming (jobs), Wyoming (housing)
+Alabama (financial), Alabama (jobs), Alaska (jobs), California (jobs), Delaware (financial), Idaho (jobs), Kansas (jobs), Kentucky (financial), Maryland (jobs), Montana (mentoring), North Carolina (financial), Ohio (jobs), Ohio (mentoring), Utah (financial)

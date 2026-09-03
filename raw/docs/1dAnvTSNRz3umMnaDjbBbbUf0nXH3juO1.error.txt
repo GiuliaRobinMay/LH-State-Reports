@@ -1,0 +1,6 @@
+fileId: 1dAnvTSNRz3umMnaDjbBbbUf0nXH3juO1
+state: Montana
+category: Free Local Mentoring, Consulting, and Research Help
+kind: file
+error: mcp__Google_Drive__read_file_content returned {"fileContent":""} (empty string) on attempt 1 and on retry attempt 2. No text could be extracted.
+note: get_file_metadata succeeded: title "Montana Local Free Research--RR Edit 3.docx", mimeType application/vnd.openxmlformats-officedocument.wordprocessingml.document, fileSize 11407537, modifiedTime 2021-01-10T15:26:00.169Z. The file exists but the connector's text extraction is empty (likely image-only / unsupported content in the docx).
