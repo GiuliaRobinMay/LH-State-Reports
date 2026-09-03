@@ -1,3 +1,7 @@
 node_modules/
 __pycache__/
 .DS_Store
+
+# Regenerate with: python3 scripts/build_bundle.py --artifact
+# (5.4MB duplicate of dist/index.html, needed only for Artifact publishing)
+dist/artifact.html

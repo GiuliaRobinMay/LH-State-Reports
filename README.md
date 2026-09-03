@@ -40,6 +40,10 @@ python3 scripts/build_bundle.py       # data/ + app/ -> dist/index.html
 
 `dist/index.html` works from a plain `file://` open, an `<iframe>` in the community platform, or any static host.
 
+`python3 scripts/build_bundle.py --artifact` additionally writes `dist/artifact.html` — the same page with the
+`<!doctype>`/`<html>`/`<head>`/`<body>` wrapper stripped, which is what Claude Artifacts expects. It is a build
+product and is not committed; regenerate it whenever you need to publish.
+
 ## Refreshing the data
 
 Re-harvest the Google Docs into `raw/docs/` (the file IDs are in `raw/master-index.json`), then run the two scripts above. The parser is deliberately tolerant of the formatting differences between documents, and any document that fails to parse still shows its original Google Doc link in the app.
