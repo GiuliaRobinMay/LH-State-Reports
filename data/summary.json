@@ -1,0 +1,1714 @@
+{
+ "states": [
+  {
+   "name": "Alabama",
+   "abbr": "AL",
+   "slug": "alabama",
+   "programCount": 89,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 0
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 25
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 36
+    }
+   ]
+  },
+  {
+   "name": "Alaska",
+   "abbr": "AK",
+   "slug": "alaska",
+   "programCount": 116,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 7
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 43
+    },
+    {
+     "key": "mentoring",
+     "programCount": 18
+    },
+    {
+     "key": "housing",
+     "programCount": 37
+    }
+   ]
+  },
+  {
+   "name": "Arizona",
+   "abbr": "AZ",
+   "slug": "arizona",
+   "programCount": 202,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 9
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 76
+    },
+    {
+     "key": "health",
+     "programCount": 43
+    },
+    {
+     "key": "mentoring",
+     "programCount": 29
+    },
+    {
+     "key": "housing",
+     "programCount": 34
+    }
+   ]
+  },
+  {
+   "name": "Arkansas",
+   "abbr": "AR",
+   "slug": "arkansas",
+   "programCount": 158,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 65
+    },
+    {
+     "key": "health",
+     "programCount": 28
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 27
+    }
+   ]
+  },
+  {
+   "name": "California",
+   "abbr": "CA",
+   "slug": "california",
+   "programCount": 122,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 17
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 42
+    },
+    {
+     "key": "mentoring",
+     "programCount": 17
+    },
+    {
+     "key": "housing",
+     "programCount": 35
+    }
+   ]
+  },
+  {
+   "name": "Colorado",
+   "abbr": "CO",
+   "slug": "colorado",
+   "programCount": 160,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 67
+    },
+    {
+     "key": "health",
+     "programCount": 26
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 29
+    }
+   ]
+  },
+  {
+   "name": "Connecticut",
+   "abbr": "CT",
+   "slug": "connecticut",
+   "programCount": 162,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 78
+    },
+    {
+     "key": "health",
+     "programCount": 14
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 31
+    }
+   ]
+  },
+  {
+   "name": "Delaware",
+   "abbr": "DE",
+   "slug": "delaware",
+   "programCount": 166,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 0
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 66
+    },
+    {
+     "key": "health",
+     "programCount": 31
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 41
+    }
+   ]
+  },
+  {
+   "name": "District of Columbia",
+   "abbr": "DC",
+   "slug": "district-of-columbia",
+   "programCount": 112,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 14
+    },
+    {
+     "key": "health",
+     "programCount": 30
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 29
+    }
+   ]
+  },
+  {
+   "name": "Florida",
+   "abbr": "FL",
+   "slug": "florida",
+   "programCount": 173,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 10
+    },
+    {
+     "key": "jobs",
+     "programCount": 68
+    },
+    {
+     "key": "health",
+     "programCount": 36
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 32
+    }
+   ]
+  },
+  {
+   "name": "Georgia",
+   "abbr": "GA",
+   "slug": "georgia",
+   "programCount": 168,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 69
+    },
+    {
+     "key": "health",
+     "programCount": 26
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 34
+    }
+   ]
+  },
+  {
+   "name": "Hawaii",
+   "abbr": "HI",
+   "slug": "hawaii",
+   "programCount": 167,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 61
+    },
+    {
+     "key": "health",
+     "programCount": 37
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 30
+    }
+   ]
+  },
+  {
+   "name": "Idaho",
+   "abbr": "ID",
+   "slug": "idaho",
+   "programCount": 99,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 9
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 31
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 32
+    }
+   ]
+  },
+  {
+   "name": "Illinois",
+   "abbr": "IL",
+   "slug": "illinois",
+   "programCount": 165,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 63
+    },
+    {
+     "key": "health",
+     "programCount": 25
+    },
+    {
+     "key": "mentoring",
+     "programCount": 15
+    },
+    {
+     "key": "housing",
+     "programCount": 39
+    }
+   ]
+  },
+  {
+   "name": "Indiana",
+   "abbr": "IN",
+   "slug": "indiana",
+   "programCount": 178,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 71
+    },
+    {
+     "key": "health",
+     "programCount": 34
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 35
+    }
+   ]
+  },
+  {
+   "name": "Iowa",
+   "abbr": "IA",
+   "slug": "iowa",
+   "programCount": 155,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 58
+    },
+    {
+     "key": "health",
+     "programCount": 22
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 36
+    }
+   ]
+  },
+  {
+   "name": "Kansas",
+   "abbr": "KS",
+   "slug": "kansas",
+   "programCount": 91,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 13
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 17
+    },
+    {
+     "key": "mentoring",
+     "programCount": 18
+    },
+    {
+     "key": "housing",
+     "programCount": 32
+    }
+   ]
+  },
+  {
+   "name": "Kentucky",
+   "abbr": "KY",
+   "slug": "kentucky",
+   "programCount": 161,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 0
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 61
+    },
+    {
+     "key": "health",
+     "programCount": 29
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 44
+    }
+   ]
+  },
+  {
+   "name": "Louisiana",
+   "abbr": "LA",
+   "slug": "louisiana",
+   "programCount": 186,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 64
+    },
+    {
+     "key": "health",
+     "programCount": 34
+    },
+    {
+     "key": "mentoring",
+     "programCount": 15
+    },
+    {
+     "key": "housing",
+     "programCount": 47
+    }
+   ]
+  },
+  {
+   "name": "Maine",
+   "abbr": "ME",
+   "slug": "maine",
+   "programCount": 158,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 66
+    },
+    {
+     "key": "health",
+     "programCount": 22
+    },
+    {
+     "key": "mentoring",
+     "programCount": 15
+    },
+    {
+     "key": "housing",
+     "programCount": 33
+    }
+   ]
+  },
+  {
+   "name": "Maryland",
+   "abbr": "MD",
+   "slug": "maryland",
+   "programCount": 98,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 25
+    },
+    {
+     "key": "mentoring",
+     "programCount": 15
+    },
+    {
+     "key": "housing",
+     "programCount": 35
+    }
+   ]
+  },
+  {
+   "name": "Massachusetts",
+   "abbr": "MA",
+   "slug": "massachusetts",
+   "programCount": 153,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 9
+    },
+    {
+     "key": "jobs",
+     "programCount": 67
+    },
+    {
+     "key": "health",
+     "programCount": 14
+    },
+    {
+     "key": "mentoring",
+     "programCount": 15
+    },
+    {
+     "key": "housing",
+     "programCount": 37
+    }
+   ]
+  },
+  {
+   "name": "Michigan",
+   "abbr": "MI",
+   "slug": "michigan",
+   "programCount": 229,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 10
+    },
+    {
+     "key": "business",
+     "programCount": 13
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 45
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 43
+    }
+   ]
+  },
+  {
+   "name": "Minnesota",
+   "abbr": "MN",
+   "slug": "minnesota",
+   "programCount": 212,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 14
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 27
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Mississippi",
+   "abbr": "MS",
+   "slug": "mississippi",
+   "programCount": 254,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 63
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 46
+    }
+   ]
+  },
+  {
+   "name": "Missouri",
+   "abbr": "MO",
+   "slug": "missouri",
+   "programCount": 236,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 51
+    },
+    {
+     "key": "mentoring",
+     "programCount": 18
+    },
+    {
+     "key": "housing",
+     "programCount": 41
+    }
+   ]
+  },
+  {
+   "name": "Montana",
+   "abbr": "MT",
+   "slug": "montana",
+   "programCount": 216,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 52
+    },
+    {
+     "key": "mentoring",
+     "programCount": 0
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Nebraska",
+   "abbr": "NE",
+   "slug": "nebraska",
+   "programCount": 241,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 54
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Nevada",
+   "abbr": "NV",
+   "slug": "nevada",
+   "programCount": 251,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 45
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 62
+    }
+   ]
+  },
+  {
+   "name": "New Hampshire",
+   "abbr": "NH",
+   "slug": "new-hampshire",
+   "programCount": 225,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 47
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 37
+    }
+   ]
+  },
+  {
+   "name": "New Jersey",
+   "abbr": "NJ",
+   "slug": "new-jersey",
+   "programCount": 237,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 16
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 46
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 45
+    }
+   ]
+  },
+  {
+   "name": "New Mexico",
+   "abbr": "NM",
+   "slug": "new-mexico",
+   "programCount": 257,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 62
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 55
+    }
+   ]
+  },
+  {
+   "name": "New York",
+   "abbr": "NY",
+   "slug": "new-york",
+   "programCount": 242,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 42
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 54
+    },
+    {
+     "key": "other",
+     "programCount": 1
+    }
+   ]
+  },
+  {
+   "name": "North Carolina",
+   "abbr": "NC",
+   "slug": "north-carolina",
+   "programCount": 235,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 0
+    },
+    {
+     "key": "business",
+     "programCount": 12
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 63
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "North Dakota",
+   "abbr": "ND",
+   "slug": "north-dakota",
+   "programCount": 136,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 51
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Ohio",
+   "abbr": "OH",
+   "slug": "ohio",
+   "programCount": 134,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 64
+    },
+    {
+     "key": "mentoring",
+     "programCount": 0
+    },
+    {
+     "key": "housing",
+     "programCount": 43
+    }
+   ]
+  },
+  {
+   "name": "Oklahoma",
+   "abbr": "OK",
+   "slug": "oklahoma",
+   "programCount": 140,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 50
+    },
+    {
+     "key": "mentoring",
+     "programCount": 16
+    },
+    {
+     "key": "housing",
+     "programCount": 47
+    }
+   ]
+  },
+  {
+   "name": "Oregon",
+   "abbr": "OR",
+   "slug": "oregon",
+   "programCount": 248,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 62
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Pennsylvania",
+   "abbr": "PA",
+   "slug": "pennsylvania",
+   "programCount": 146,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 59
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 45
+    }
+   ]
+  },
+  {
+   "name": "Puerto Rico",
+   "abbr": "PR",
+   "slug": "puerto-rico",
+   "programCount": 441,
+   "categories": [
+    {
+     "key": "business",
+     "programCount": 18
+    },
+    {
+     "key": "jobs",
+     "programCount": 350
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 54
+    }
+   ]
+  },
+  {
+   "name": "Rhode Island",
+   "abbr": "RI",
+   "slug": "rhode-island",
+   "programCount": 240,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 59
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 37
+    }
+   ]
+  },
+  {
+   "name": "South Carolina",
+   "abbr": "SC",
+   "slug": "south-carolina",
+   "programCount": 232,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 98
+    },
+    {
+     "key": "health",
+     "programCount": 45
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "South Dakota",
+   "abbr": "SD",
+   "slug": "south-dakota",
+   "programCount": 237,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 53
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Tennessee",
+   "abbr": "TN",
+   "slug": "tennessee",
+   "programCount": 240,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 11
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 51
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 44
+    }
+   ]
+  },
+  {
+   "name": "Texas",
+   "abbr": "TX",
+   "slug": "texas",
+   "programCount": 255,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 64
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 45
+    }
+   ]
+  },
+  {
+   "name": "Utah",
+   "abbr": "UT",
+   "slug": "utah",
+   "programCount": 221,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 0
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 47
+    },
+    {
+     "key": "mentoring",
+     "programCount": 18
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Vermont",
+   "abbr": "VT",
+   "slug": "vermont",
+   "programCount": 236,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 99
+    },
+    {
+     "key": "health",
+     "programCount": 49
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 41
+    }
+   ]
+  },
+  {
+   "name": "Virginia",
+   "abbr": "VA",
+   "slug": "virginia",
+   "programCount": 138,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 11
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 53
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 42
+    }
+   ]
+  },
+  {
+   "name": "Washington",
+   "abbr": "WA",
+   "slug": "washington",
+   "programCount": 159,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 63
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 50
+    }
+   ]
+  },
+  {
+   "name": "West Virginia",
+   "abbr": "WV",
+   "slug": "west-virginia",
+   "programCount": 124,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 1
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 47
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 45
+    }
+   ]
+  },
+  {
+   "name": "Wisconsin",
+   "abbr": "WI",
+   "slug": "wisconsin",
+   "programCount": 137,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 7
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 51
+    },
+    {
+     "key": "mentoring",
+     "programCount": 20
+    },
+    {
+     "key": "housing",
+     "programCount": 47
+    }
+   ]
+  },
+  {
+   "name": "Wyoming",
+   "abbr": "WY",
+   "slug": "wyoming",
+   "programCount": 111,
+   "categories": [
+    {
+     "key": "financial",
+     "programCount": 12
+    },
+    {
+     "key": "business",
+     "programCount": 15
+    },
+    {
+     "key": "jobs",
+     "programCount": 0
+    },
+    {
+     "key": "health",
+     "programCount": 65
+    },
+    {
+     "key": "mentoring",
+     "programCount": 19
+    },
+    {
+     "key": "housing",
+     "programCount": 0
+    }
+   ]
+  }
+ ],
+ "categories": [
+  {
+   "key": "financial",
+   "name": "Financial Assistance",
+   "tagline": "Personal bills, debt, rent, utilities and emergency money",
+   "icon": "💵"
+  },
+  {
+   "key": "business",
+   "name": "Business",
+   "tagline": "Start or grow a business, nonprofit or invention",
+   "icon": "🏢"
+  },
+  {
+   "key": "jobs",
+   "name": "Jobs, Education & Training",
+   "tagline": "Training for a better job, degrees and government jobs",
+   "icon": "🎓"
+  },
+  {
+   "key": "health",
+   "name": "Health, Dental & Pet Care",
+   "tagline": "Free and low-cost health care, prescriptions, dental and pet care",
+   "icon": "🩺"
+  },
+  {
+   "key": "mentoring",
+   "name": "Free Local Mentoring & Research Help",
+   "tagline": "Local experts, libraries, 211 and counselors who help for free",
+   "icon": "🧭"
+  },
+  {
+   "key": "housing",
+   "name": "Real Estate & Housing",
+   "tagline": "Grants, cheap loans and counselors for buying or keeping a home",
+   "icon": "🏠"
+  },
+  {
+   "key": "other",
+   "name": "Other Resources",
+   "tagline": "Extra links listed for this state",
+   "icon": "🔗"
+  }
+ ],
+ "totals": {
+  "states": 52,
+  "programs": 9649,
+  "links": 18003
+ },
+ "generated": "2026-09-03"
+}
