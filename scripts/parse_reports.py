@@ -57,6 +57,16 @@ def clean_url(u):
     u = u.replace('\\_', '_').replace('\\&', '&').replace('\\#', '#').replace('\\~', '~')
     return u
 
+# A label lifted out of a URL fragment ("&text=The%20tax...", "referrer=", "?") tells
+# a reader nothing. Drop it so the app falls back to a plain-words verb plus the host.
+URLISH = re.compile(r'[?&=]|https?:|%[0-9A-Fa-f]{2}|\bfbclid\b|\butm_')
+def usable_label(lab):
+    lab = (lab or '').strip()
+    if not lab: return ''
+    if URLISH.search(lab): return ''
+    if re.fullmatch(r'[A-Za-z0-9_\-]{22,}', lab): return ''
+    return lab
+
 def link_type(u):
     ul = u.lower()
     if 'youtube.com' in ul or 'youtu.be' in ul: return 'video'
@@ -101,6 +111,7 @@ VIDEO_LABEL = re.compile(r'^(watch|intro|see)\b.*(video|this)s?:?\s*$', re.I)
 STRAY_URL = re.compile(r'\(?(?:https?://|www\.)\S+\)?')
 def clean_text(t):
     t = STRAY_URL.sub(' ', t)
+    t = re.sub(r'(?m)^\s*[`~\'"*.\u2026\\-]{1,4}\s*$', '', t)
     t = re.sub(r'\\([#&_~*])', r'\1', t)
     t = re.sub(r'\s+([,.;:?!])', r'\1', t)
     return re.sub(r'\s{2,}', ' ', t).strip(' *:-')
@@ -253,7 +264,7 @@ def parse_doc(text, state):
                     continue
                 seen.add(u)
                 l['type'] = link_type(u); l['host'] = host(u)
-                l['label'] = norm_title(l['label']) if l['label'] else ''
+                l['label'] = usable_label(norm_title(l['label'])) if l['label'] else ''
                 if not l['label'] or l['label'].lower() in ('website', 'website:', 'here', 'click here', 'link'):
                     l['label'] = ('Watch video' if l['type'] == 'video' else l['host']) if not l['label'] else l['label'].rstrip(':') + ' (' + l['host'] + ')'
                 links.append(l)
@@ -289,7 +300,7 @@ def parse_doc(text, state):
             if l['url'] in seen: continue
             seen.add(l['url'])
             l['type'] = link_type(l['url']); l['host'] = host(l['url'])
-            l['label'] = norm_title(l['label']) if l['label'] else ('Watch video' if l['type'] == 'video' else l['host'])
+            l['label'] = usable_label(norm_title(l['label'])) or ('Watch video' if l['type'] == 'video' else l['host'])
             intro_links.append(l)
     return {'intro': intro_text[:1200], 'introLinks': intro_links[:16], 'groups': groups}
 

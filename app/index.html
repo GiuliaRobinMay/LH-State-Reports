@@ -147,6 +147,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .alpha-h .chev{width:16px;height:16px;color:var(--grey);flex:none;transition:transform .15s ease}
 .alpha-h[aria-expanded="true"] .chev{transform:rotate(90deg)}
 .alpha-h[aria-expanded="true"] .ltr{color:var(--action)}
+.alpha-h.solo{text-decoration:none;color:var(--ink-soft);gap:12px}
+.alpha-h.solo .nm{font-size:16px;font-weight:500;line-height:1.25;min-width:0}
+.alpha-h.solo .cnt{color:var(--grey)}
+.alpha-h.solo[aria-current="page"]{background:var(--attention);color:var(--attention-ink);font-weight:800}
+.alpha-h.solo[aria-current="page"] .ltr,.alpha-h.solo[aria-current="page"] .cnt{color:var(--attention-ink)}
+.alpha-h.has-current .ltr{background:var(--attention);color:var(--attention-ink);border-radius:5px;text-align:center}
 .alpha ul{list-style:none;margin:0 0 6px;padding:0 0 0 4px;display:flex;flex-direction:column;gap:1px}
 .alpha li a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:7px 10px 7px 26px;border-radius:8px;text-decoration:none;color:var(--ink-soft);font-size:16px;font-weight:500;line-height:1.25}
 .alpha li a:hover{background:var(--chrome-2);color:var(--ink)}
@@ -358,14 +364,27 @@ const go = h => { location.hash = h; };
 
 // ---------------- rendering helpers ----------------
 const ICON = { video:'▶', document:'DOC', pdf:'PDF', web:'↗' };
-const KIND = { video:'Video', document:'Document', pdf:'PDF', web:'Website' };
+// A chip whose only label is its hostname says nothing: "docs.google.com" is not a
+// word, and none of them say what happens if you tap. Fall back to a plain verb and
+// keep the host as the small grey suffix.
+const VERB = { video:'Watch the video', document:'Read the document', pdf:'Open the PDF', web:'Go to the website' };
 function linkChip(l){
   const t = l.type || 'web';
-  const label = l.label && l.label !== l.host ? l.label : (t === 'video' ? 'Watch video' : l.host);
-  const showHost = l.label && t !== 'video' && !l.label.toLowerCase().includes(l.host.toLowerCase());
+  const named = l.label && l.label !== l.host;
+  const label = named ? l.label : VERB[t];
+  const showHost = !named || !l.label.toLowerCase().includes(l.host.toLowerCase());
   return `<a class="lnk ${t}" href="${esc(l.url)}" target="_blank" rel="noopener">`
-    + `<span class="i" aria-hidden="true">${ICON[t]||'↗'}</span><span class="sr">${KIND[t]||'Link'}: </span>`
-    + `<span class="t">${esc(label)}</span>${showHost?`<span class="h">${esc(l.host)}</span>`:''}</a>`;
+    + `<span class="i" aria-hidden="true">${ICON[t]||'↗'}</span>`
+    + `<span class="t">${esc(label)}</span>${showHost?`<span class="h">${esc(l.host)}</span>`:''}`
+    + `<span class="sr"> (opens in a new window)</span></a>`;
+}
+// "2025-12-11" reads as a version number to a lot of people. Say the month.
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function niceDate(iso, withDay){
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+  if (!m) return iso || '';
+  const mon = MONTHS[+m[2] - 1];
+  return withDay ? `${mon} ${+m[3]}, ${m[1]}` : `${mon} ${m[1]}`;
 }
 function hl(text, q){
   if (!q) return esc(text);
@@ -414,19 +433,34 @@ function renderRail(activeSlug){
   if (active) open.add(active.name[0].toUpperCase());   // your state's letter is never hidden from you
   $('#rail-n').textContent = summary.states.length;
   $('#rail').innerHTML = groups.map(([L, states]) => {
+    // Six letters hold exactly one state (F G H L R U). Making someone open a
+    // drawer to reveal a single item is a click that buys them nothing, so those
+    // render as the state link itself.
+    if (states.length === 1) {
+      const s = states[0];
+      return `<div class="alpha"><a class="alpha-h solo" href="#/state/${s.slug}" ${s.slug===activeSlug?'aria-current="page"':''}>
+        <span class="ltr">${L}</span><span class="nm">${esc(s.name)}</span>
+        <span class="cnt">${s.programCount}<span class="sr"> programs</span></span></a></div>`;
+    }
     const isOpen = open.has(L);
+    // When the drawer holding your state is shut, the letter itself carries the
+    // highlighter mark, so "you are here" survives the collapse.
+    const holdsActive = !isOpen && active && states.some(s => s.slug === activeSlug);
     return `<div class="alpha">
-      <button class="alpha-h" aria-expanded="${isOpen}" data-letter="${L}">
+      <button class="alpha-h${holdsActive?' has-current':''}" aria-expanded="${isOpen}" data-letter="${L}">
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
         <span class="ltr">${L}</span>
-        <span class="sr">${states.length} states</span>
+        <span class="sr">${states.length} states${holdsActive?', including the one you are looking at':''}</span>
         <span class="cnt" aria-hidden="true">${states.length}</span>
       </button>
-      <ul ${isOpen?'':'hidden'}>${states.map(s => `<li><a href="#/state/${s.slug}" ${s.slug===activeSlug?'aria-current="page"':''}><span>${esc(s.name)}</span><span class="n">${s.programCount}</span></a></li>`).join('')}</ul>
+      <ul ${isOpen?'':'hidden'}>${states.map(s => `<li><a href="#/state/${s.slug}" ${s.slug===activeSlug?'aria-current="page"':''}><span>${esc(s.name)}</span><span class="n">${s.programCount}<span class="sr"> programs</span></span></a></li>`).join('')}</ul>
     </div>`;
   }).join('');
   const btn = $('#statebtn');
-  $('#sb-abbr').textContent = active ? active.abbr : 'US';
+  // No "US" badge before a state is chosen: a seal-style badge in the top bar
+  // edges toward implied government affiliation, which the brand bans outright.
+  $('#sb-abbr').textContent = active ? active.abbr : '';
+  $('#sb-abbr').hidden = !active;
   $('#sb-name').textContent = active ? active.name : 'Choose your state';
   btn.setAttribute('aria-label', active ? `Your state: ${active.name}. Choose a different state` : 'Choose your state');
 }
@@ -449,18 +483,17 @@ function viewHome(){
   return `
   <section class="hero">
     <h1>Find the help in your state</h1>
-    <p class="lede">Every state has hundreds of offices and programs that give out money and help. Most people never hear about them. This is <span class="mark">${t.programs.toLocaleString()} of them</span>, sorted by state.</p>
+    <p class="lede">Every state has offices and programs that give out money and help. Most people never hear about them. We found <span class="mark">${t.programs.toLocaleString()} of them</span>, sorted by state.</p>
     <p class="promise">Don’t give up. Somebody will answer.</p>
     <div class="totals">
-      <div><b class="num">${t.states}</b><span>States</span></div>
-      <div><b class="num">${t.programs.toLocaleString()}</b><span>Programs</span></div>
-      <div><b class="num">${t.links.toLocaleString()}</b><span>Links</span></div>
+      <div><b class="num">${t.states}</b><span>States and territories</span></div>
+      <div><b class="num">${t.programs.toLocaleString()}</b><span>Programs to look at</span></div>
     </div>
   </section>
-  ${last ? `<div class="notice"><span class="q" aria-hidden="true">?</span><span>Welcome back. Pick up where you left off in <a href="#/state/${last.slug}">${esc(last.name)}</a>.</span></div>` : ''}
-  <div class="sec-h"><h2>What you can look for</h2><span class="note">Six reports for every state</span></div>
+  ${last ? `<div class="notice"><span class="q" aria-hidden="true">♥</span><span>Welcome back. Pick up where you left off in <a href="#/state/${last.slug}">${esc(last.name)}</a>.</span></div>` : ''}
+  <div class="sec-h"><h2>What you can look for</h2><span class="note">Six topics for every state</span></div>
   <div class="cats">${cats.map(c => `<a class="cat" style="${catVar(c.key)}" href="${last?`#/state/${last.slug}/${c.key}`:'#/'}"><span class="ic" aria-hidden="true">${c.icon}</span><span><b>${esc(c.name)}</b><small>${esc(c.tagline)}</small></span></a>`).join('')}</div>
-  <div class="sec-h"><h2>Choose your state</h2><span class="note">Programs we found in each one</span></div>
+  <div class="sec-h"><h2>Choose your state</h2><span class="note">How many programs each one has</span></div>
   <ul class="states">${summary.states.map(s => `<li><a href="#/state/${s.slug}"><span class="abbr">${s.abbr}</span><span><span class="nm">${esc(s.name)}</span><span class="ct num">${s.programCount} programs</span></span></a></li>`).join('')}</ul>`;
 }
 
@@ -476,16 +509,16 @@ function viewState(st, catKey, q){
     body = `<div class="results-h"><h2>${rows.length} match${rows.length===1?'':'es'} in ${esc(st.name)} for “${esc(q)}”</h2><a href="#/search">Look in every state →</a></div>`
       + (rows.length ? `<div class="group">${rows.join('')}</div>` : `<div class="empty"><b>Nothing in ${esc(st.name)} matched that word.</b>Try a simpler word, or look in every state.</div>`);
   } else {
-    const src = cat.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">Original report${s.modified?` · ${s.modified}`:''} ↗</a>`).join('');
+    const src = cat.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">Original report${s.modified?` — updated ${niceDate(s.modified)}`:''} ↗</a>`).join('');
     body = `<div class="catintro" style="${catVar(cat.key)}"><div><div class="tag"><span class="ic" aria-hidden="true">${cat.icon}</span><span>${esc(cat.blurb || cat.tagline)}</span></div>${cat.intro ? `<p>${esc(cat.intro)}</p>`:''}${cat.introLinks && cat.introLinks.length ? `<div class="introlinks">${cat.introLinks.map(linkChip).join('')}</div>`:''}</div><div class="src">${src}</div></div>`;
-    if (!cat.groups.length) body += `<div class="empty"><b>This report is not in here yet.</b>${cat.sources.length ? 'You can still open the original above.' : ''}</div>`;
+    if (!cat.groups.length) body += `<div class="empty"><b>This one isn’t in the finder yet.</b>${cat.sources.length ? 'You can open the original report at the top of this page.' : 'Try another topic above, or look in every state.'}</div>`;
     body += cat.groups.map(g => {
       const gi = g.intro && ((g.intro.text && g.intro.text.length) || (g.intro.links && g.intro.links.length))
         ? `<div class="gintro">${g.intro.text ? `<p>${esc(g.intro.text)}</p>` : ''}${g.intro.links.length ? `<div class="links">${g.intro.links.map(linkChip).join('')}</div>` : ''}</div>` : '';
       return `<section class="group" style="${catVar(cat.key)}">${g.title ? `<h3><span>${esc(g.title)}</span><span class="n num">${g.programs.length}</span></h3>` : ''}${gi}${g.programs.map(p => programRow(p, '', '')).join('')}</section>`;
     }).join('');
   }
-  return `<div class="shead"><h1>${esc(st.name)}</h1><div class="sub"><b class="num">${st.programCount}</b> programs across <b>${cats.length}</b> reports</div></div>${tabs}${body}`;
+  return `<div class="shead"><h1>${esc(st.name)}</h1><div class="sub"><b class="num">${st.programCount}</b> programs in <b>${cats.length}</b> topics</div></div>${tabs}${body}`;
 }
 
 async function viewSearch(q){
@@ -524,7 +557,7 @@ async function render(){
     main.innerHTML = '<div class="loading">Loading…</div>';
     let st;
     try { st = await loadState(r.slug); }
-    catch(e){ main.innerHTML = '<div class="empty"><b>We don’t have that state.</b><a href="#/">See all states</a></div>'; return; }
+    catch(e){ main.innerHTML = '<div class="empty"><b>We couldn’t find that state.</b><a href="#/">See all states</a></div>'; return; }
     LS.set('lh:state', r.slug);
     if (r.cat) LS.set('lh:cat', r.cat);
     renderRail(r.slug);
@@ -581,9 +614,12 @@ document.addEventListener('click', e => {
 window.addEventListener('hashchange', render);
 
 loadSummary().then(() => {
-  if (summary.generated) $('#ft-gen').textContent = 'Programs collected ' + summary.generated + '.';
+  if (summary.generated) $('#ft-gen').textContent = 'Last updated ' + niceDate(summary.generated, true) + '.';
   render();
-}).catch(err => { $('#main').innerHTML = `<div class="empty"><b>The programs did not load.</b>${esc(err.message)}</div>`; });
+}).catch(err => {
+  console.error('Program data failed to load:', err);
+  $('#main').innerHTML = '<div class="empty"><b>The programs did not load.</b>Check your internet connection and refresh the page. If it keeps happening, tell us in the community.</div>';
+});
 })();
 </script>
 </body>
