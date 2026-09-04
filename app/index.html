@@ -6,7 +6,7 @@
 <title>Lesko Help State Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&display=swap">
 <style>
 /* ============================================================================
    Lesko Help State Finder
@@ -46,6 +46,10 @@
   --win:var(--text-green);
   --focus:var(--display-blue-mid);
   --save:var(--display-red);           /* the heart */
+  /* The community red, used only at display size. 3.43:1 on cream clears the
+     AA-large threshold a 40px+ headline is judged by; --text-red stays the red
+     for anything small. */
+  --red-display:var(--display-red);
   --shadow:0 1px 2px rgba(60,42,20,.05), 0 12px 30px -18px rgba(60,42,20,.35);
 
   /* ---- category identity ----------------------------------------------
@@ -57,9 +61,9 @@
   --c-mentoring:var(--display-pink);   --c-housing:var(--display-green);
 
   --font:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --serif:"Lora",Georgia,"Iowan Old Style","Times New Roman",serif;
+  --serif:"Newsreader",Georgia,"Iowan Old Style","Times New Roman",serif;
   --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --frame:14px;          /* the striped border */
+  --frame:7px;           /* the striped border */
   --radius:14px;
   color-scheme:light;
 }
@@ -70,7 +74,7 @@
     --ink:#f7efe2; --ink-soft:#e6dccb; --grey:#b3a894;
     --rule:#3a3327; --rule-strong:#544a39;
     --page:#17140e; --chrome:#1c1811; --chrome-2:#2b261c; --card:#211d15;
-    --focus:#73a8ff; --save:#fb868e;
+    --focus:#73a8ff; --save:#fb868e; --red-display:#ff6a74;
     --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -18px rgba(0,0,0,.85);
     color-scheme:dark;
   }
@@ -81,7 +85,7 @@
   --ink:#f7efe2; --ink-soft:#e6dccb; --grey:#b3a894;
   --rule:#3a3327; --rule-strong:#544a39;
   --page:#17140e; --chrome:#1c1811; --chrome-2:#2b261c; --card:#211d15;
-  --focus:#73a8ff; --save:#fb868e;
+  --focus:#73a8ff; --save:#fb868e; --red-display:#ff6a74;
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -18px rgba(0,0,0,.85);
   color-scheme:dark;
 }
@@ -112,7 +116,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     var(--display-yellow) 0 56px, var(--display-blue) 56px 112px,
     var(--display-green) 112px 168px, var(--display-red) 168px 224px)}
 .frame .l{left:0} .frame .r{right:0}
-@media (max-width:700px){:root{--frame:9px}.frame .t,.frame .b,.frame .l,.frame .r{background-size:auto}}
+@media (max-width:700px){:root{--frame:5px}}
 
 /* ---------- top bar ---------- */
 .top{position:sticky;top:var(--frame);z-index:40;background:var(--chrome);border-bottom:1px solid var(--rule)}
@@ -120,7 +124,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);min-width:0;min-height:48px}
 .brand-mark{width:44px;height:44px;border-radius:50%;background:var(--display-blue);color:#fff;display:grid;place-items:center;font:600 25px/1 var(--serif);flex:none}
 .brand .wm{font:600 21px/1.05 var(--serif);display:block;letter-spacing:-.01em}
-.brand .wm i{font-style:italic;color:var(--text-red);font-weight:500}
+.brand .wm i{font-style:italic;color:var(--red-display);font-weight:500}
 .brand small{display:block;color:var(--grey);font:500 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
 .suits{display:flex;gap:7px;font-size:16px;line-height:1}
 .suits span:nth-child(1){color:var(--display-blue)} .suits span:nth-child(2){color:var(--display-red)}
@@ -145,52 +149,66 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:1080px){.theme button .lbl{display:none}.theme button{padding:6px 11px}}
 
 /* ---------- shell + the thin line ---------- */
-.wrap{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:268px minmax(0,1fr);align-items:start}
+.wrap{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:var(--rail-w,206px) minmax(0,1fr);align-items:start}
+:root[data-rail="closed"] .wrap{--rail-w:44px}
 #main{min-width:0;padding:22px 20px 70px}
 .rail{border-right:1px solid var(--rule);background:var(--chrome);align-self:stretch;min-width:0}
-.rail-in{position:sticky;top:calc(var(--frame) + 72px);max-height:calc(100vh - var(--frame) - 92px);overflow-y:auto;padding:16px 10px 26px;display:flex;flex-direction:column;gap:2px;
+.rail-in{position:sticky;top:calc(var(--frame) + 72px);max-height:calc(100vh - var(--frame) - 92px);overflow-y:auto;padding:12px 8px 22px;display:flex;flex-direction:column;gap:1px;
   scrollbar-width:thin;scrollbar-color:var(--rule-strong) transparent}
 .rail-in::-webkit-scrollbar{width:4px}
 .rail-in::-webkit-scrollbar-track{background:transparent}
 .rail-in::-webkit-scrollbar-thumb{background:var(--rule-strong);border-radius:2px}
-.rail-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:4px 10px 10px}
-.rail-h .n{font:500 12px/1 var(--mono);color:var(--grey)}
+.rail-h{display:flex;align-items:center;gap:8px;padding:2px 2px 8px}
+.rail-h .kicker{font-size:11px;letter-spacing:.16em}
+.rail-h .n{font:500 11px/1 var(--mono);color:var(--grey);margin-left:auto}
+.railtoggle{width:32px;height:32px;flex:none;display:grid;place-items:center;border-radius:8px;color:var(--grey)}
+.railtoggle:hover{background:var(--chrome-2);color:var(--ink)}
+.railtoggle svg{width:16px;height:16px;transition:transform .15s ease}
+:root[data-rail="closed"] .rail-h .kicker,
+:root[data-rail="closed"] .rail-h .n,
+:root[data-rail="closed"] #rail{display:none}
+:root[data-rail="closed"] .rail-in{padding:12px 5px;align-items:center}
+:root[data-rail="closed"] .railtoggle svg{transform:rotate(180deg)}
 @media (max-width:920px){.wrap{grid-template-columns:minmax(0,1fr)}.rail{display:none}}
 
 /* ---------- A-Z groups ----------
    Every letter uses the same three-column rhythm (disclosure slot / letter /
    count) so single-state letters line up with the rest instead of forming their
    own ragged shape. ------------------------------------------------------- */
-.alpha-h{width:100%;min-height:48px;display:grid;grid-template-columns:18px 22px 1fr auto;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;text-align:left}
-button.alpha-h:hover{background:var(--chrome-2)}
-.alpha-h .ltr{font:600 20px/1 var(--serif);color:var(--ink)}
-.alpha-h .cnt{font:500 12px/1 var(--mono);color:var(--grey)}
-.alpha-h .chev{width:15px;height:15px;color:var(--grey);transition:transform .15s ease}
+/* Every letter is the same object: chevron, letter, count. A letter holding one
+   state opens and closes exactly like a letter holding eight. */
+.alpha-h{width:100%;min-height:48px;display:grid;grid-template-columns:14px 18px 1fr auto;align-items:center;gap:8px;padding:5px 8px;border-radius:8px;text-align:left}
+.alpha-h:hover{background:var(--chrome-2)}
+.alpha-h .ltr{font:600 16px/1 var(--serif);color:var(--ink)}
+.alpha-h .cnt{font:500 11px/1 var(--mono);color:var(--grey)}
+.alpha-h .chev{width:13px;height:13px;color:var(--grey);transition:transform .15s ease}
 .alpha-h[aria-expanded="true"] .chev{transform:rotate(90deg)}
 .alpha-h[aria-expanded="true"] .ltr{color:var(--action)}
-.alpha-h.has-current .ltr{background:var(--attention);color:var(--attention-ink);border-radius:5px;text-align:center;width:22px}
-.alpha ul{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-direction:column;gap:1px}
-.alpha li{display:flex;align-items:stretch;gap:2px;padding-left:38px;border-radius:9px}
+.alpha-h.has-current .ltr{background:var(--attention);color:var(--attention-ink);border-radius:4px;text-align:center;width:18px}
+.alpha ul{list-style:none;margin:0 0 3px;padding:0;display:flex;flex-direction:column;gap:0}
+.alpha li{display:flex;align-items:stretch;gap:1px;padding-left:26px;border-radius:8px}
 .alpha li:hover{background:var(--chrome-2)}
-.alpha li a{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:7px 4px 7px 10px;border-radius:9px;text-decoration:none;color:var(--ink-soft);font-size:16px;font-weight:500;line-height:1.25;min-width:0}
+.alpha li a{flex:1;display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:44px;padding:5px 2px 5px 8px;border-radius:8px;text-decoration:none;color:var(--ink-soft);font-size:15px;font-weight:500;line-height:1.25;min-width:0}
 .alpha li a .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.alpha li a .n{color:var(--grey);font:500 12px/1 var(--mono);flex:none}
+.alpha li a .n{color:var(--grey);font:500 11px/1 var(--mono);flex:none}
 .alpha li a[aria-current="page"]{background:var(--attention);color:var(--attention-ink);font-weight:700}
 .alpha li a[aria-current="page"] .n{color:var(--attention-ink)}
+/* A mouse can hit a smaller row safely; touch keeps the brand pack's 48px floor. */
+@media (pointer:fine){.alpha-h,.alpha li a,.alpha li .heart{min-height:34px}}
 /* the heart: saved states, kept visible once saved */
-.heart{width:38px;min-height:44px;display:grid;place-items:center;color:var(--rule-strong);font-size:16px;border-radius:9px;flex:none}
+.heart{width:32px;min-height:44px;display:grid;place-items:center;color:var(--rule-strong);font-size:15px;border-radius:8px;flex:none}
 .heart:hover{color:var(--save)}
 .heart[aria-pressed="true"]{color:var(--save)}
 .alpha li .heart{opacity:0}
 .alpha li:hover .heart,.alpha li .heart:focus-visible,.alpha li .heart[aria-pressed="true"]{opacity:1}
-.saved-grp{margin:0 0 10px;padding:0 0 10px;border-bottom:1px solid var(--rule)}
-.saved-grp .kicker{display:flex;align-items:center;gap:7px;padding:4px 10px 8px}
-.saved-grp .kicker .hi{color:var(--save);font-size:13px}
+.saved-grp{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid var(--rule)}
+.saved-grp .kicker{display:flex;align-items:center;gap:6px;padding:2px 8px 6px;font-size:11px}
+.saved-grp .kicker .hi{color:var(--save);font-size:12px}
 
 /* ---------- home ---------- */
 .hero{padding:16px 0 6px}
-.hero h1{font:600 clamp(38px,5.4vw,62px)/1.06 var(--serif);letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance;max-width:15ch;color:var(--ink)}
-.hero h1 i{font-style:italic;color:var(--text-red);font-weight:500}
+.hero h1{font:500 clamp(30px,5.2vw,58px)/1.08 var(--serif);letter-spacing:-.015em;margin:0 0 18px;color:var(--ink)}
+.hero h1 i{font-style:italic;color:var(--red-display);font-weight:500}
 .hero .lede{margin:0;color:var(--ink-soft);max-width:54ch;font-size:19px}
 .hero .lede .mark{background:var(--attention);color:var(--attention-ink);padding:1px 7px;border-radius:5px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .hero .promise{margin:16px 0 0;font:600 21px/1.3 var(--serif);color:var(--ink)}
@@ -204,10 +222,10 @@ button.alpha-h:hover{background:var(--chrome-2)}
 .sec-h .note{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
 
 .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:12px}
-.cat{display:flex;gap:13px;align-items:flex-start;min-height:48px;padding:16px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--card);text-decoration:none;color:inherit;border-left:5px solid var(--cc,var(--action))}
+.cat{display:flex;gap:12px;align-items:center;min-height:76px;padding:15px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--card);text-decoration:none;color:inherit;border-left:5px solid var(--cc,var(--action))}
 .cat:hover{box-shadow:var(--shadow)}
 .cat .ic{font-size:23px;line-height:1;flex:none;width:32px;height:32px;display:grid;place-items:center}
-.cat b{display:block;font:600 19px/1.25 var(--serif);color:var(--ink)}
+.cat b{display:block;font:600 18px/1.25 var(--serif);color:var(--ink)}
 .cat small{display:block;color:var(--grey);font-size:15px;line-height:1.4;margin-top:3px}
 
 .states{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:10px;list-style:none;margin:0;padding:0}
@@ -252,7 +270,9 @@ button.alpha-h:hover{background:var(--chrome-2)}
 @media (max-width:680px){.catintro{grid-template-columns:1fr}.catintro .src{text-align:left}}
 .introlinks{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 2px}
 
-.group{margin:28px 0 0}
+.group{margin:28px 0 0;scroll-margin-top:calc(var(--frame) + 84px)}
+.group.is-target > h3{background:var(--attention);color:var(--attention-ink);border-radius:8px 8px 0 0;padding:10px 12px;margin:0 -12px}
+.group.is-target > h3 .n{color:var(--attention-ink)}
 .group > h3{margin:0 0 2px;padding:10px 0;border-bottom:2px solid var(--cc,var(--action));display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:600 19px/1.3 var(--serif);color:var(--ink)}
 .group > h3 .n{font:500 12px/1 var(--mono);color:var(--grey);flex:none}
 .gintro{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:14px 0 2px;color:var(--grey);font-size:17px}
@@ -338,7 +358,10 @@ dialog.picker::backdrop{background:rgba(30,20,8,.55)}
 
 <div class="wrap">
   <nav class="rail" aria-label="States"><div class="rail-in">
-    <div class="rail-h"><span class="kicker">States</span><span class="n num" id="rail-n"></span></div>
+    <div class="rail-h"><span class="kicker">States</span><span class="n num" id="rail-n"></span>
+      <button class="railtoggle" id="railtoggle" aria-label="Hide the list of states" aria-expanded="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+      </button></div>
     <div id="rail"></div>
   </div></nav>
   <main id="main"><div class="loading">Loading programs…</div></main>
@@ -376,6 +399,18 @@ function applyTheme(mode){
 $$('.theme button').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet)));
 applyTheme(LS.get('lh:theme') || 'auto');
 
+// ---------------- rail collapse ----------------
+function applyRail(closed){
+  document.documentElement.setAttribute('data-rail', closed ? 'closed' : 'open');
+  const b = $('#railtoggle');
+  b.setAttribute('aria-expanded', String(!closed));
+  b.setAttribute('aria-label', closed ? 'Show the list of states' : 'Hide the list of states');
+  LS.set('lh:rail', closed ? 'closed' : 'open');
+}
+$('#railtoggle').addEventListener('click', () =>
+  applyRail(document.documentElement.getAttribute('data-rail') !== 'closed'));
+applyRail(LS.get('lh:rail') === 'closed');
+
 // ---------------- saved states ----------------
 const saved = new Set((LS.get('lh:saved') || '').split(',').filter(Boolean));
 const isSaved = slug => saved.has(slug);
@@ -412,7 +447,7 @@ const byslug = slug => summary.states.find(s => s.slug === slug);
 // ---------------- routing ----------------
 function route(){
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
-  if (parts[0] === 'state' && parts[1]) return { view:'state', slug: parts[1], cat: parts[2] || null };
+  if (parts[0] === 'state' && parts[1]) return { view:'state', slug: parts[1], cat: parts[2] || null, group: parts[3] || null };
   if (parts[0] === 'search') return { view:'search' };
   return { view:'home' };
 }
@@ -460,6 +495,37 @@ function matches(p, q){
   return q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w));
 }
 const catVar = key => `--cc:var(--c-${key})`;
+const slugify = t => (t||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60);
+
+// Finer-grained ways in. Every entry is either one of the six report topics or a
+// section that actually recurs inside them across the states, so no card leads
+// anywhere empty. The state count is measured from the data, not asserted.
+const TOPICS = [
+  {label:'Bills, debt and rent',   icon:'💵', cat:'financial'},
+  {label:'Free cars and repairs',  icon:'🚗', cat:'financial', group:'How to Find Free Cars and Car Repair'},
+  {label:'Housing and buying a home', icon:'🏠', cat:'housing'},
+  {label:'Starting a business',    icon:'🏢', cat:'business'},
+  {label:'Jobs',                   icon:'💼', cat:'jobs'},
+  {label:'Training for a new skill', icon:'🛠️', cat:'jobs', group:'Training from Local City, County, State and Non-Profit Organizations'},
+  {label:'College degrees',        icon:'🎓', cat:'jobs', group:'College Degrees'},
+  {label:'Government jobs',        icon:'🏛️', cat:'jobs', group:'Government Jobs'},
+  {label:'Work for yourself',      icon:'🧰', cat:'jobs', group:'Create Your Own Job as Contractor, Freelancer or Small Business'},
+  {label:'Health care and prescriptions', icon:'🩺', cat:'health'},
+  {label:'Dental care',            icon:'🦷', cat:'health', group:'Dental Care'},
+  {label:'Vet bills and pet food', icon:'🐾', cat:'health', group:'Vet Bills and Pet Food'},
+  {label:'Free local experts',     icon:'🧭', cat:'mentoring'},
+];
+function topicHref(t, slug){
+  return slug ? `#/state/${slug}/${t.cat}${t.group?'/'+slugify(t.group):''}` : '';
+}
+// How many programs this topic holds in the state you are looking at.
+function topicCount(st, t){
+  const c = st && st.categories.find(c => c.key === t.cat);
+  if (!c) return 0;
+  if (!t.group) return c.programCount;
+  const g = c.groups.find(g => g.title === t.group);
+  return g ? g.programs.length : 0;
+}
 
 // ---------------- the A-Z rail ----------------
 // Only letters that actually have a state get a group, so no empty B, E, J, Q, X, Y, Z.
@@ -494,16 +560,9 @@ function renderRail(activeSlug){
     <div class="alpha"><ul>${savedList.map(s => stateRow(s, activeSlug)).join('')}</ul></div>
   </div>` : '';
 
+  // Every letter is built the same way, whether it holds one state or eight, so
+  // the column reads as a single list rather than two kinds of thing.
   $('#rail').innerHTML = savedBlock + groups.map(([L, states]) => {
-    // Single-state letters keep the same three-column rhythm as every other
-    // letter -- disclosure slot, letter, then the state indented beneath -- so
-    // the column never goes ragged. There is just nothing to open or close.
-    if (states.length === 1) {
-      return `<div class="alpha">
-        <div class="alpha-h"><span aria-hidden="true"></span><span class="ltr">${L}</span><span></span><span></span></div>
-        <ul>${stateRow(states[0], activeSlug)}</ul>
-      </div>`;
-    }
     const isOpen = open.has(L);
     // When the drawer holding your state is shut, the letter itself carries the
     // highlighter mark, so "you are here" survives the collapse.
@@ -528,7 +587,7 @@ function renderRail(activeSlug){
 }
 $('#rail').addEventListener('click', e => {
   const h = e.target.closest('.alpha-h');
-  if (!h || h.tagName !== 'BUTTON') return;
+  if (!h) return;
   const nowOpen = h.getAttribute('aria-expanded') !== 'true';
   h.setAttribute('aria-expanded', String(nowOpen));
   h.parentElement.querySelector('ul').hidden = !nowOpen;
@@ -538,15 +597,16 @@ $('#rail').addEventListener('click', e => {
 });
 
 // ---------------- views ----------------
-function viewHome(){
+async function viewHome(){
   const t = summary.totals;
-  const cats = summary.categories.filter(c => c.key !== 'other');
   const last = byslug(LS.get('lh:state'));
+  let lastFull = null;
+  if (last) { try { lastFull = await loadState(last.slug); } catch(e){ lastFull = null; } }
   const savedList = summary.states.filter(s => isSaved(s.slug));
   const card = s => `<li><a href="#/state/${s.slug}" class="${isSaved(s.slug)?'is-saved':''}"><span class="abbr">${s.abbr}</span><span><span class="nm">${esc(s.name)}</span><span class="ct num">${s.programCount} programs</span></span></a>${heartBtn(s.slug, s.name)}</li>`;
   return `
   <section class="hero">
-    <h1>Find the help <i>in your state.</i></h1>
+    <h1>Find help <i>in your state.</i></h1>
     <p class="lede">Every state has offices and programs that give out money and help. Most people never hear about them. We found <span class="mark">${t.programs.toLocaleString()} of them</span>, sorted by state.</p>
     <p class="promise">Don’t give up. Somebody will answer.</p>
     <div class="totals">
@@ -554,16 +614,20 @@ function viewHome(){
       <div><b class="num">${t.programs.toLocaleString()}</b><span>Programs to look at</span></div>
     </div>
   </section>
-  ${last ? `<div class="notice"><span class="hi" aria-hidden="true">♥</span><span>Welcome back. Go to <a href="#/state/${last.slug}">${esc(last.name)}</a>, or pick another state below.</span></div>` : ''}
+  ${last ? `<div class="notice"><span class="hi" aria-hidden="true">♥</span><span>Welcome back. Pick up where you left off in <a href="#/state/${last.slug}">${esc(last.name)}</a>.</span></div>` : ''}
   ${savedList.length ? `<div class="sec-h"><h2><span class="hi" aria-hidden="true">♥</span>My states</h2><span class="note">The ones you saved</span></div>
     <ul class="states">${savedList.map(card).join('')}</ul>` : ''}
-  <div class="sec-h"><h2>What you can look for</h2><span class="note">Six topics for every state</span></div>
-  <div class="cats">${cats.map(c => `<a class="cat" style="${catVar(c.key)}" href="${last?`#/state/${last.slug}/${c.key}`:'#/'}"><span class="ic" aria-hidden="true">${c.icon}</span><span><b>${esc(c.name)}</b><small>${esc(c.tagline)}</small></span></a>`).join('')}</div>
-  <div class="sec-h"><h2>Choose your state</h2><span class="note">Tap ♥ to keep one here</span></div>
-  <ul class="states">${summary.states.map(card).join('')}</ul>`;
+  <div class="sec-h"><h2>What do you need help with?</h2><span class="note">${last?'Numbers for '+esc(last.name):'Pick a state to see the numbers'}</span></div>
+  <div class="cats">${TOPICS.map(tp => {
+    const n = lastFull ? topicCount(lastFull, tp) : 0;
+    const href = topicHref(tp, last && last.slug);
+    return `<a class="cat" style="${catVar(tp.cat)}" ${href?`href="${href}"`:'href="#/" data-pick'} data-topic="${tp.cat}${tp.group?'/'+slugify(tp.group):''}">
+      <span class="ic" aria-hidden="true">${tp.icon}</span>
+      <span><b>${esc(tp.label)}</b>${lastFull?`<small class="num">${n} program${n===1?'':'s'} in ${esc(last.name)}</small>`:''}</span></a>`;
+  }).join('')}</div>`;
 }
 
-function viewState(st, catKey, q){
+function viewState(st, catKey, q, groupSlug){
   const cats = st.categories.filter(c => c.programCount > 0 || c.sources.length);
   const cat = cats.find(c => c.key === catKey) || cats[0];
   const on = isSaved(st.slug);
@@ -585,7 +649,8 @@ function viewState(st, catKey, q){
     body += cat.groups.map(g => {
       const gi = g.intro && ((g.intro.text && g.intro.text.length) || (g.intro.links && g.intro.links.length))
         ? `<div class="gintro">${g.intro.text ? `<p>${esc(g.intro.text)}</p>` : ''}${g.intro.links.length ? `<div class="links">${g.intro.links.map(linkChip).join('')}</div>` : ''}</div>` : '';
-      return `<section class="group" style="${catVar(cat.key)}">${g.title ? `<h3><span>${esc(g.title)}</span><span class="n num">${g.programs.length}</span></h3>` : ''}${gi}${g.programs.map(p => programRow(p, '', '')).join('')}</section>`;
+      const hit = g.title && groupSlug && slugify(g.title) === groupSlug;
+      return `<section class="group${hit?' is-target':''}" id="${g.title?'g-'+slugify(g.title):''}" style="${catVar(cat.key)}">${g.title ? `<h3><span>${esc(g.title)}</span><span class="n num">${g.programs.length}</span></h3>` : ''}${gi}${g.programs.map(p => programRow(p, '', '')).join('')}</section>`;
     }).join('');
   }
   return head + tabs + `<div class="panel">${body}</div>`;
@@ -616,11 +681,12 @@ async function viewSearch(q){
 
 // ---------------- app ----------------
 let q = '';
+let pendingTopic = null;   // a topic card tapped before a state was chosen
 async function render(){
   const r = route(), main = $('#main');
   if (r.view === 'home') {
     renderRail(null);
-    main.innerHTML = viewHome();
+    main.innerHTML = await viewHome();
     document.title = 'Lesko Help State Finder';
   } else if (r.view === 'state') {
     renderRail(r.slug);
@@ -631,7 +697,11 @@ async function render(){
     LS.set('lh:state', r.slug);
     if (r.cat) LS.set('lh:cat', r.cat);
     renderRail(r.slug);
-    main.innerHTML = viewState(st, r.cat || LS.get('lh:cat'), q);
+    main.innerHTML = viewState(st, r.cat || LS.get('lh:cat'), q, r.group);
+    if (r.group) {
+      const target = $('.group.is-target');
+      if (target) target.scrollIntoView({block:'start', behavior:'auto'});
+    }
     document.title = st.name + ' · Lesko Help State Finder';
   } else {
     renderRail(LS.get('lh:state'));
@@ -640,7 +710,8 @@ async function render(){
     document.title = 'Search · Lesko Help State Finder';
   }
   $('#qclear').hidden = !q;
-  if (r.view !== 'search') window.scrollTo({top:0});
+  // Arriving at a topic means arriving at its section, so don't reset to the top.
+  if (r.view !== 'search' && !r.group) window.scrollTo({top:0});
 }
 
 function openPicker(){
@@ -654,7 +725,12 @@ function openPicker(){
   $('#pq').value = '';
   $('#pq').oninput = e => draw(e.target.value.trim().toLowerCase());
   $('#pq').onkeydown = e => { if (e.key === 'Enter') { const a = $('#plist a'); if (a) { d.close(); go(a.getAttribute('href')); } } };
-  $('#plist').onclick = e => { if (e.target.closest('a')) d.close(); };
+  $('#plist').onclick = e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    d.close();
+    if (pendingTopic) { e.preventDefault(); go(a.getAttribute('href') + '/' + pendingTopic); pendingTopic = null; }
+  };
   d.showModal();
   $('#pq').focus();
 }
@@ -683,6 +759,13 @@ document.addEventListener('click', e => {
     more.textContent = p.classList.contains('clamp') ? 'Show more' : 'Show less';
     return;
   }
+  const pick = e.target.closest('[data-pick]');
+  if (pick) {
+    e.preventDefault();
+    pendingTopic = pick.dataset.topic || null;
+    openPicker();
+    return;
+  }
   const save = e.target.closest('[data-save]');
   if (save) {
     e.preventDefault();
@@ -692,8 +775,8 @@ document.addEventListener('click', e => {
       save.setAttribute('aria-pressed', String(on));
       save.innerHTML = `<span class="hi" aria-hidden="true">${on?'♥':'♡'}</span>${on?'Saved':'Save this state'}`;
     } else if (route().view === 'home') {
-      // the home grid carries a "My states" section, so it has to be rebuilt
-      $('#main').innerHTML = viewHome();
+      // the home screen carries a "My states" section, so it has to be rebuilt
+      viewHome().then(html => { $('#main').innerHTML = html; });
     } else {
       save.setAttribute('aria-pressed', String(on));
       save.textContent = on ? '♥' : '♡';
